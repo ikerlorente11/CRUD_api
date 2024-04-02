@@ -1,0 +1,6 @@
+fastapi
+uvicorn
+flask-migrate
+sqlalchemy
+pymysql
+cryptography

@@ -1,0 +1,40 @@
+version: '3'
+
+services:
+  api:
+    build:
+      context: .
+    container_name: crud-api
+    environment:
+      - FLASK_APP=database
+    ports:
+      - '8000:8000'
+    restart: unless-stopped
+    depends_on:
+      - db
+    networks:
+      - crud_api
+    volumes:
+      - ./app:/app
+    command: sh -c "flask db upgrade && uvicorn main:app --host 0.0.0.0 --port 8000 --reload"
+  db:
+    image: mysql
+    container_name: crud-db
+    restart: unless-stopped
+    environment:
+      - MYSQL_ROOT_PASSWORD=password
+      - MYSQL_DATABASE=data
+      - MYSQL_USER=user
+      - MYSQL_PASSWORD=password
+    ports:
+      - 3306:3306
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      interval: 2s
+      timeout: 1s
+      retries: 20
+    networks:
+      - crud_api
+
+networks:
+  crud_api:
