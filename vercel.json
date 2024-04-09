@@ -14,8 +14,7 @@
         "api": {
             "runtime": "python3.8",
             "memory": 512,
-            "includeFiles": "app/**",
-            "entrypoint": "app/start.sh"
+            "includeFiles": "app/**"
         }
     }
 }
