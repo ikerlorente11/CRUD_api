@@ -16,7 +16,7 @@ services:
       - crud_api
     volumes:
       - ./app:/app
-    command: sh -c "flask db upgrade && uvicorn main:app --host 0.0.0.0 --port 8000 --reload"
+    command: sh -c "flask db upgrade && uvicorn main:app --host 0.0.0.0 --port 80 --reload"
   # db:
   #   image: mysql
   #   container_name: crud-db
