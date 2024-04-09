@@ -1,14 +1,20 @@
 {
     "version": 2,
+    "builds": [
+        {
+            "src": "app/main.py",
+            "use": "@vercel/python"
+        }
+    ],
+    "env": {
+        "FLASK_APP": "app.main:app",
+        "DATABASE_URI": "postgresql://default:iLyj6K2gkNsm@ep-muddy-queen-a2knla90.eu-central-1.aws.neon.tech:5432/verceldb?sslmode=require"
+    },
     "functions": {
         "api": {
             "runtime": "python3.8",
             "memory": 512,
             "includeFiles": "app/**",
-            "environment": {
-                "FLASK_APP": "app.main:app",
-                "DATABASE_URI": "postgresql://default:iLyj6K2gkNsm@ep-muddy-queen-a2knla90.eu-central-1.aws.neon.tech:5432/verceldb?sslmode=require"
-            },
             "routes": [
                 {
                     "src": "/(.*)",
