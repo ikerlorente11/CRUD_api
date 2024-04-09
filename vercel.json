@@ -2,18 +2,18 @@
     "version": 2,
     "builds": [
         {
-            "src": "app.py",
+            "src": "/app/api.py",
             "use": "@vercel/python",
             "config": {
-                "FLASK_APP": "app:app",
-                "DATABASE_URI": "postgresql://user:password@localhost/dbname"
+                "FLASK_APP": "database",
+                "DATABASE_URI": "postgresql://default:iLyj6K2gkNsm@ep-muddy-queen-a2knla90.eu-central-1.aws.neon.tech:5432/verceldb?sslmode=require"
             }
         }
     ],
     "routes": [
         {
             "src": "/(.*)",
-            "dest": "app/main.py"
+            "dest": "/app/api.py"
         }
     ]
 }

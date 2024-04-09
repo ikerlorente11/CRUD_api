@@ -1,4 +1,5 @@
 fastapi
+fastapi-socketio==0.0.10
 uvicorn
 flask-migrate
 sqlalchemy
