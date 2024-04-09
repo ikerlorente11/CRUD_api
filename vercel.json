@@ -5,6 +5,7 @@
             "src": "/app/api.py",
             "use": "@vercel/python",
             "config": {
+                "runtime": "python3.9",
                 "FLASK_APP": "database",
                 "DATABASE_URI": "postgresql://default:iLyj6K2gkNsm@ep-muddy-queen-a2knla90.eu-central-1.aws.neon.tech:5432/verceldb?sslmode=require"
             }
