@@ -2,5 +2,6 @@ fastapi
 uvicorn
 flask-migrate
 sqlalchemy
-pymysql
+psycopg2-binary
+python-dotenv
 cryptography

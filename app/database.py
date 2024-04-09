@@ -1,11 +1,15 @@
+import os
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
+from dotenv import load_dotenv
+
+load_dotenv()
 
 flask_app  = Flask(__name__)
-flask_app .config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://user:password@db/data'
+flask_app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv('DATABASE_URI')
 
-db = SQLAlchemy(flask_app )
+db = SQLAlchemy(flask_app)
 migrate = Migrate(flask_app , db)
 
 class Student(db.Model):
